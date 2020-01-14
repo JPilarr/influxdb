@@ -9,10 +9,7 @@ import {Context} from 'src/clockface'
 import InlineLabels from 'src/shared/components/inlineLabels/InlineLabels'
 
 // Actions
-import {
-  addDashboardLabelAsync,
-  removeDashboardLabelAsync,
-} from 'src/dashboards/actions'
+import {addDashboardLabel, removeDashboardLabel} from 'src/dashboards/actions'
 import {createLabel as createLabelAsync} from 'src/labels/actions'
 
 // Selectors
@@ -41,8 +38,8 @@ interface StateProps {
 }
 
 interface DispatchProps {
-  onAddDashboardLabel: typeof addDashboardLabelAsync
-  onRemoveDashboardLabel: typeof removeDashboardLabelAsync
+  onAddDashboardLabel: typeof addDashboardLabel
+  onRemoveDashboardLabel: typeof removeDashboardLabel
   onCreateLabel: typeof createLabelAsync
   onResetViews: typeof resetViews
 }
@@ -196,8 +193,8 @@ const mstp = ({labels}: AppState): StateProps => {
 
 const mdtp: DispatchProps = {
   onCreateLabel: createLabelAsync,
-  onAddDashboardLabel: addDashboardLabelAsync,
-  onRemoveDashboardLabel: removeDashboardLabelAsync,
+  onAddDashboardLabel: addDashboardLabel,
+  onRemoveDashboardLabel: removeDashboardLabel,
   onResetViews: resetViews,
 }
 

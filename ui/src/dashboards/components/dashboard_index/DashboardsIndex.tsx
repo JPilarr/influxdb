@@ -22,8 +22,8 @@ import {extractDashboardLimits} from 'src/cloud/utils/limits'
 
 // Actions
 import {
-  deleteDashboardAsync,
-  updateDashboardAsync,
+  deleteDashboard,
+  updateDashboard,
   createDashboard as createDashboardAction,
   cloneDashboard as cloneDashboardAction,
 } from 'src/dashboards/actions'
@@ -34,8 +34,8 @@ import {LimitStatus} from 'src/cloud/actions/limits'
 import {ComponentStatus} from '@influxdata/clockface'
 
 interface DispatchProps {
-  handleDeleteDashboard: typeof deleteDashboardAsync
-  handleUpdateDashboard: typeof updateDashboardAsync
+  onDeleteDashboard: typeof deleteDashboard
+  onUpdateDashboard: typeof updateDashboard
   createDashboard: typeof createDashboardAction
   cloneDashboard: typeof cloneDashboardAction
 }
@@ -69,8 +69,8 @@ class DashboardIndex extends PureComponent<Props, State> {
     const {
       createDashboard,
       cloneDashboard,
-      handleUpdateDashboard,
-      handleDeleteDashboard,
+      onUpdateDashboard,
+      onDeleteDashboard,
       limitStatus,
     } = this.props
     const {searchTerm} = this.state
@@ -112,10 +112,10 @@ class DashboardIndex extends PureComponent<Props, State> {
                       searchTerm={searchTerm}
                     />
                   }
-                  onDeleteDashboard={handleDeleteDashboard}
+                  onDeleteDashboard={onDeleteDashboard}
                   onCreateDashboard={createDashboard}
                   onCloneDashboard={cloneDashboard}
-                  onUpdateDashboard={handleUpdateDashboard}
+                  onUpdateDashboard={onUpdateDashboard}
                   searchTerm={searchTerm}
                   onFilterChange={this.handleFilterDashboards}
                   onImportDashboard={this.summonImportOverlay}
@@ -169,8 +169,8 @@ const mstp = (state: AppState): StateProps => {
 }
 
 const mdtp: DispatchProps = {
-  handleDeleteDashboard: deleteDashboardAsync,
-  handleUpdateDashboard: updateDashboardAsync,
+  onDeleteDashboard: deleteDashboard,
+  onUpdateDashboard: updateDashboard,
   createDashboard: createDashboardAction,
   cloneDashboard: cloneDashboardAction,
 }
