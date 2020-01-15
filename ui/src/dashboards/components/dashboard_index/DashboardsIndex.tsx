@@ -26,7 +26,7 @@ import {
   updateDashboard,
   createDashboard as createDashboardAction,
   cloneDashboard as cloneDashboardAction,
-} from 'src/dashboards/actions'
+} from 'src/dashboards/actions/thunks'
 
 // Types
 import {AppState, ResourceType} from 'src/types'

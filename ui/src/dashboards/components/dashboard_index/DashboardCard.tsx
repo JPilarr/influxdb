@@ -9,7 +9,10 @@ import {Context} from 'src/clockface'
 import InlineLabels from 'src/shared/components/inlineLabels/InlineLabels'
 
 // Actions
-import {addDashboardLabel, removeDashboardLabel} from 'src/dashboards/actions'
+import {
+  addDashboardLabel,
+  removeDashboardLabel,
+} from 'src/dashboards/actions/thunks'
 import {createLabel as createLabelAsync} from 'src/labels/actions'
 
 // Selectors
